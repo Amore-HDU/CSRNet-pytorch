@@ -176,7 +176,7 @@ def validate(val_list, model, criterion):
         img = Variable(img)
         output = model(img)
         
-        mae += abs(output.data.sum()-target.sum())
+        mae += abs(output.data.sum()-target.sum().cuda())
         
     mae = mae/len(test_loader)    
     print(' * MAE {mae:.3f} '
